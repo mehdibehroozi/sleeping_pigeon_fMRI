@@ -14,6 +14,8 @@ These codes will apply following preprocessing steps:
 9) temporal filtering (3dTproject function): High pass filters cut off frequencies below a certain threshold which of course should below the lowest frequency of interest. Since in fMRI, noise is disproportionally expressed in low frequencies, high-pass filtering can also help whitening the noise (i.e. flattening the noise spectrum), which helps fulfilling GLM assumptions.
 10) removing dummy scans (fslroi function): This is a product of the machine’s magnetic field first lining up the protons in the water molecules in the brain, before they have gone into a stead stat. To remove the thermal noise effect we remove first 5 volumes. In addition, to avoide the edge effect of temporal filtering, we discarded the last 5 volumes.
 11) Temporal signal-to-noise ratio (tSNR): A useful measure of image time course stability is the Temporal Signal-to-Noise Ratio (TSNR) calculated by dividing the mean of a time series by its standard deviation.
-12)  Physiological Noise Modelling: we used Pnm in FSL to find the voxel-wise regresorse for respiration signal to model in GLM
+12) Physiological Noise Modelling: we used Pnm in FSL to find the voxel-wise regresorse for respiration signal to model in GLM
 13) GLM analysis
-14)  Regresing out the Voxel wise EVs (from Pnm, film_gls function) and motion parameters (fsl_regfilt).
+14) Regresing out the Voxel wise EVs (from Pnm, film_gls function) and motion parameters (fsl_regfilt).
+15) ROI analysis: CSF and GM masks were transfered to single subject space (fslmeants function).
+16) Extract estimated parameters from statistical maps (cops)
